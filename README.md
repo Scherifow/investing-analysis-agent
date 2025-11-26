@@ -41,6 +41,22 @@ The system analyzes stocks across 16 key dimensions:
 
 ### Installation
 
+#### Option 1: Using uv (Recommended)
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Scherifow/investing-analysis-agent.git
+   cd investing-analysis-agent
+   ```
+
+2. **Install dependencies**
+   ```bash
+   uv sync
+   source .venv/bin/activate
+   ```
+
+#### Option 2: Using pip
+
 1. **Clone the repository**
    ```bash
    git clone https://github.com/Scherifow/investing-analysis-agent.git
@@ -58,7 +74,9 @@ The system analyzes stocks across 16 key dimensions:
    pip install -e .
    ```
 
-4. **Set up your Google API key**
+### Configuration
+
+1. **Set up your Google API key**
    
    Create a `.env` file in the project root:
    ```bash
