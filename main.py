@@ -19,15 +19,15 @@ async def main():
     print(f"\n🚀 Analyzing {stock_query}...")
     print("=" * 50)
     
-    # Create the research workflow
-    root_agent = create_research_workflow()
+    # Create the research workflow with the stock query
+    root_agent = create_research_workflow(stock_query)
     
     # Run the analysis
     runner = InMemoryRunner(agent=root_agent)
     response = await runner.run_debug(
-        f"Analyze the investment potential of {stock_query}. "
-        f"Research recent technology trends, health innovations, and financial developments "
-        f"related to {stock_query}. Provide a comprehensive executive summary."
+        f"Conduct a comprehensive investment analysis of {stock_query}. "
+        f"Provide factual, unbiased information across all research areas. "
+        f"Focus on delivering pure data and objective insights without speculation or bias."
     )
     
     print("\n" + "=" * 50)
@@ -35,9 +35,9 @@ async def main():
     print("=" * 50)
     
     # Display the results
-    if hasattr(response, 'session_state') and 'executive_summary' in response.session_state:
-        print("\n📋 Executive Summary:")
-        print(response.session_state['executive_summary'])
+    if hasattr(response, 'session_state') and 'investment_recommendation' in response.session_state:
+        print("\n📋 Investment Analysis:")
+        print(response.session_state['investment_recommendation'])
     else:
         print("\n📋 Response:")
         print(response)
